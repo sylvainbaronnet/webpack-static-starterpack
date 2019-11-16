@@ -12,7 +12,7 @@ medias-path-theme = path-theme(assets-path, medias-path)
 image-size-safe(filename)
   image-path = pathjoin(medias-path-local, filename)
 
-  if (file-exists(image-path))
+  if file-exists(image-path)
     image-size(image-path)
   else
     warn("Stylus couldn't find '" + image-path + "'.")
@@ -81,7 +81,7 @@ gif-size(filename, rep = false, p1 = 0, p2 = null, p3 = null, p4 = null)
 svg(filename, rep = false, p1 = 0, p2 = null, p3 = null, p4 = null)
   image-path = pathjoin(medias-path-local, filename + '.svg')
 
-  if (file-exists(image-path))
+  if file-exists(image-path)
     background-image url(pathjoin(medias-path-theme, filename + '.svg'))
   else
     warn("Stylus couldn't find '" + image-path + "'.")

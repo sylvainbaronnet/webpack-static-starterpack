@@ -12,7 +12,7 @@
   "stylusSupremacy.insertSpaceAfterComma": true,
   "stylusSupremacy.insertSpaceInsideParenthesis": false,
   "stylusSupremacy.insertParenthesisAfterNegation": false,
-  "stylusSupremacy.insertParenthesisAroundIfCondition": true,
+  "stylusSupremacy.insertParenthesisAroundIfCondition": false,
   "stylusSupremacy.insertNewLineBeforeElse": false,
   "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
   "stylusSupremacy.selectorSeparator": "\n",

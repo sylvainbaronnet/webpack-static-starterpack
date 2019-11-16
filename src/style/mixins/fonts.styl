@@ -40,11 +40,11 @@ font-face(filename, name = filename, weight = 'normal', style = 'normal')
   // push(font-src, (url(font-path + '.eot?#iefix') format('embedded-opentype')))
 
   // supported by edge14+, ff39+, chrome36+, safari10+
-  if (file-exists(font-path-local + '.woff2'))
+  if file-exists(font-path-local + '.woff2')
     push(font-src, url(font-path + '.woff2') format('woff2'))
 
   // supported by ie9+/edge, ff3.6+, chrome5+, safari5.1+
-  if (file-exists(font-path-local + '.woff'))
+  if file-exists(font-path-local + '.woff')
     push(font-src, url(font-path + '.woff') format('woff'))
 
   // older safari, android, ios
@@ -58,7 +58,7 @@ font-face(filename, name = filename, weight = 'normal', style = 'normal')
   // ugly hack, part 2
   shift(font-src) shift(font-src)
 
-  if (font-src)
+  if font-src
     @font-face
       font-family name
       src font-src
