@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.config.js  --open",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js && yarn prettier-html",
-    "prettier": "prettier --trailing-comma all --no-bracket-spacing --jsx-bracket-same-line --single-quote --write './{src,config}/**/*.{js,md}' && yarn prettier-stylus",
+    "prettier": "prettier --write './{src,config}/**/*.{js,md}' && yarn prettier-stylus",
     "prettier-stylus": "stylus-supremacy format './src/style/**/*.styl' --options ./config/.stylus.json --replace",
     "prettier-html": "prettyhtml './dist/**/*.html'",
     "eslint": "eslint src config --ext .js -c config/eslint.config.js"
