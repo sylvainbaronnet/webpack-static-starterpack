@@ -1,13 +1,12 @@
 /*
  * layout helpers
  */
-
 /* pad an element using the calc function */
 wrapper(width)
   float left
   position relative
   width 100%
-  padding '* calc(50% - %s)' %(unit(width / 2, 'px'))
+  padding '* calc(50% - %s)' % unit((width / 2), 'px')
 
 wrapper-margin(width)
   max-width width
@@ -16,13 +15,14 @@ wrapper-margin(width)
   height inherit
 
 width-column(part, margin = 0)
-  percent = unit(100 / part, '%')
-  if margin == 0
+  percent = unit((100 / part), '%')
+
+  if (margin == 0)
     width percent
   else
-    if margin > 0
-      margin-part = unit((part - 1) * margin / part, 'px')
-      width 'calc(%s - %s)' %((percent) (margin-part))
+    if (margin > 0)
+      margin-part = unit(((part - 1) * margin / part), 'px')
+      width 'calc(%s - %s)' % ((percent) (margin-part))
     else
       warn("Hey buddy, negative margin doesn't work here!")
       nil
@@ -31,7 +31,6 @@ width-column(part, margin = 0)
  * Clearfix
  * cf. http://cssmojo.com/the-very-latest-clearfix-reloaded/
  */
-
 clearfix()
   &:after
     content ''
@@ -40,10 +39,15 @@ clearfix()
 
 /* legacy version (ie, opera...) */
 clearfix-legacy()
-  *zoom 1         // ie6-7 support
-  &:before
-  &:after
-    content ' '   // space necessary for old opera version
-    display table // ensure visual consistency with ie6-7, but prevent margin collapse
-  &:after
-    clear both
+@css {
+  *
+}
+
+zoom 1
+&:before
+&:after
+  content ' ' // space necessary for old opera version
+  display table // ensure visual consistency with ie6-7, but prevent margin collapse
+
+&:after
+  clear both

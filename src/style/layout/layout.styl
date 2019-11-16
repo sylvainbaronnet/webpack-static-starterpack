@@ -5,9 +5,8 @@
  * font and block size are automatically converted to `rem` units
  * by the `postcss-pxtorem` plugin, with a root value of 1
  */
-
 html
-  font-size unit($rem-root-value * 100 / base-width-desktop, 'vw')
+  font-size unit(($rem-root-value * 100 / base-width-desktop), 'vw')
 
   +below(breakpoint-mobile)
     &.device-mobile
@@ -19,24 +18,14 @@ html
   /*
    * jumpy scroll bar fix
    */
-
-  // cf. https://aykevl.nl/2014/09/fix-jumping-scrollbar
-
   /* 1st alt -- force vertical scrollbar */
-  // overflow-y scroll
-
   /* 2rd alt -- force width, hide part of the page under scrollbar, disable h-scroll */
-  // width 100vw
-  // overflow-x hidden
-
-  /* 3rd alt -- force margin, assert 'overflow: auto', async  */
-  // margin-left calc(100vw - 100%)
-  // margin-right 0
+  /* 3rd alt -- force margin, assert 'overflow: auto', async */
 
 body
   color color-text color-background
   font-family font
   font-weight normal
-  font-size 16/1.45
+  font-size 16 / 1.45
   overflow-x hidden
   clearfix()

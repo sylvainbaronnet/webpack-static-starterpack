@@ -1,19 +1,14 @@
 /*
  * html5 form style
  */
-
 @require 'input.styl'
 
 /*
  * https://www.tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/
  */
-
-
-
 /*
  * form validation style
  */
-
 input[value]
   &[type=email]
   &[type=url]
@@ -26,8 +21,10 @@ input[value]
     // valid/invalid pseudo-selector (apply all the time)
     &:valid
       box-shadow 0 0 2 0 green
+
     &:invalid
       box-shadow 0 0 2 0 red
+
     // user-valid/user-invalid pseudo-selector
     // apply upon leaving (on blur) the input field
     &:-moz-ui-valid
@@ -35,6 +32,7 @@ input[value]
       // box-shadow 0 0 2 0 green
       // border-color darkgreen
       // color darkgreen lightgreen
+
     &:-moz-ui-invalid
     &:user-invalid
       box-shadow 0 0 2 0 red
@@ -44,36 +42,38 @@ input[value]
 input
 textarea
   &::-webkit-validation-bubble
-      &-arrow
-        //
-        &-clipper
-          //
-      &-heading
-        //
-      &-message
-        //
-      &-text-block
-        //
+    &-arrow
+      // 
+      &-clipper
+        // 
 
+    &-heading
+      // 
+
+    &-message
+      // 
+
+    &-text-block
+      // 
 
 /*
  * placeholder style
  */
-
 input
 textarea
   &::placeholder
     color color-text
     transition opacity 5s ease
     opacity .6
+
   &:focus
     &::placeholder
       opacity .4
+
   &:placeholder-shown
     // style the input when placeholder is shown
     background-color #ffffee
     border input-border-style
-
 
 /*
  * HTML5 form items
@@ -84,7 +84,6 @@ textarea
  * Date & time related input
  * - date, datetime-local, time, week, month
  */
-
 /*
  * Color picker
  */
@@ -95,30 +94,28 @@ input[type=color]
   padding 0
   background-color color-white
   appearance none
+
   &::-moz-color-swatch
     border none
+
   &::-webkit-color-swatch
     border none
+
   &::-webkit-color-swatch-wrapper
     padding 0
-
 
 /*
  * Range input
  */
-
 input[type=range]
-  //
-
+  // 
 
 /*
  * Search field
  */
-
 input[type=search]
   &::-webkit-search-decoration
     display none
-
 
 /*
  * Date & time picker
@@ -126,7 +123,7 @@ input[type=search]
  */
 input[type=date]
 input[type=time]
-  //
+  // 
 
 /*
  * Week & month picker
@@ -134,11 +131,11 @@ input[type=time]
  */
 input[type=week]
 input[type=month]
-  //
+  // 
 
 /*
  * Local Datetime
  * (chrome only)
  */
 input[type=datetime-local]
-  //
+  // 

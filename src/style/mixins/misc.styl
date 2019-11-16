@@ -1,19 +1,16 @@
 /*
  * stylus helpers
  */
-
 ellipsis =
   display block
   white-space nowrap
   overflow hidden
   text-overflow ellipsis
-
 crisp-edges =
   image-rendering optimizeSpeed
   image-rendering -moz-crisp-edges
-  image-rendering   -o-crisp-edges
+  image-rendering -o-crisp-edges
   image-rendering -webkit-optimize-contrast
-
 /*
  * visually hide content while still visible
  * for screen reader
@@ -29,12 +26,9 @@ visually-hidden =
   // clip-path inset(50%)
   // overflow hidden
   // white-space nowrap
-
-
 /*
  * Animations (timing functions)
  * cf. matthewlein.com/tools/ceaser
  */
-
-ease-bounce      = cubic-bezier(0.175, 0.885, 0.320, 1.275)
-ease-bounce-soft = cubic-bezier(0.175, 0.885, 0.320, 1.1)
+ease-bounce = cubic-bezier(.175, .885, .32, 1.275)
+ease-bounce-soft = cubic-bezier(.175, .885, .32, 1.1)

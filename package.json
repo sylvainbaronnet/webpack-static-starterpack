@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.config.js  --open",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js && yarn prettier-html",
     "prettier": "prettier --trailing-comma all --no-bracket-spacing --jsx-bracket-same-line --single-quote --write './{src,config}/**/*.{js,md}' && yarn prettier-stylus",
-    "prettier-stylus": "stylus-supremacy format './src/css/**/*.styl' --options ./config/.stylus.json --replace",
+    "prettier-stylus": "stylus-supremacy format './src/style/**/*.styl' --options ./config/.stylus.json --replace",
+    "prettier-html": "prettyhtml './dist/**/*.html'",
     "eslint": "eslint src config --ext .js -c config/eslint.config.js"
   },
   "author": "",
@@ -39,6 +40,7 @@
     "@babel/runtime-corejs2": "^7.7.2",
     "@babel/template": "^7.7.0",
     "@babel/types": "^7.7.2",
+    "@starptech/prettyhtml": "^0.10.0",
     "autoprefixer": "^9.7.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",

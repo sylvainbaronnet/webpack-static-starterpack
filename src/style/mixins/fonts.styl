@@ -6,32 +6,17 @@
  * - github.com/jonathantneal/system-font-css
  * - smashingmagazine.com/2009/09/complete-guide-to-css-font-stacks/
  */
-
-font-system-ui  = -apple-system, BlinkMacSystemFont, // macOs
-                  'Segoe UI',                        // Windows
-                  Roboto,                            // Android
-                  Oxygen-Sans, Ubuntu, Cantarell,    // Linux (KDE, Ubuntu, Gnome)
-                  'Helvetica Neue',                  // macOs (legacy)
-                  'Droid Sans',                      // Android (legacy)
-                  Tahoma,                            // Windows (legacy)
-                  sans-serif,                        // fallback
-                  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' // Emoji and symbols fonts
-
+font-system-ui = -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', 'Droid Sans', Tahoma, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' // macOs
 font-sans-serif = 'Helvetica Neue', Helvetica, 'Lucida Grande', sans-serif
-font-serif      = Georgia, Times, 'Times New Roman', serif
-font-monospace  = 'SF Mono', 'Ubuntu Mono', Menlo, Monaco, Consolas, 'Lucida Console', 'DejaVu Sans Mono', 'Courier New', monospace
-
-
+font-serif = Georgia, Times, 'Times New Roman', serif
+font-monospace = 'SF Mono', 'Ubuntu Mono', Menlo, Monaco, Consolas, 'Lucida Console', 'DejaVu Sans Mono', 'Courier New', monospace
 /*
  * Misc. helpers
  */
-
 /* smooth font rendering (for text on dark background) */
 font-smoothing =
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
-
-
 /*
  * bulletproof font-face syntax
  * cf. zachleat.com/web/retire-bulletproof-syntax/
@@ -40,43 +25,40 @@ font-smoothing =
  * `font-display: fallback` won't swap the font if not loaded in time.
  * Both will avoid FOIT (invisible text).
  */
-
 use('stylus-plugins.js')
-
 fonts-path-local = path-local(assets-path, fonts-path)
 fonts-path-theme = path-theme(assets-path, fonts-path)
 
 font-face(filename, name = filename, weight = 'normal', style = 'normal')
-  font-path       = pathjoin(fonts-path-theme, filename)
+  font-path = pathjoin(fonts-path-theme, filename)
   font-path-local = pathjoin(fonts-path-local, filename)
-
   // ugly hack to ensure comma separated arrays, part 1
   font-src = (), ()
 
   // ie9 compat modes; iefix for ie6-8
   // if file-exists(font-path-local + '.eot')
-  //   push(font-src, (url(font-path + '.eot?#iefix') format('embedded-opentype')))
+  // push(font-src, (url(font-path + '.eot?#iefix') format('embedded-opentype')))
 
   // supported by edge14+, ff39+, chrome36+, safari10+
-  if file-exists(font-path-local + '.woff2')
-    push(font-src, (url(font-path + '.woff2') format('woff2')))
+  if (file-exists(font-path-local + '.woff2'))
+    push(font-src, url(font-path + '.woff2') format('woff2'))
 
   // supported by ie9+/edge, ff3.6+, chrome5+, safari5.1+
-  if file-exists(font-path-local + '.woff')
-    push(font-src, (url(font-path + '.woff') format('woff')))
+  if (file-exists(font-path-local + '.woff'))
+    push(font-src, url(font-path + '.woff') format('woff'))
 
   // older safari, android, ios
   // if file-exists(font-path-local + '.ttf')
-  //   push(font-src, (url(font-path + '.ttf') format('truetype')))
+  // push(font-src, (url(font-path + '.ttf') format('truetype')))
 
   // legacy ios
   // if file-exists(font-path-local + '.svg')
-  //   push(font-src, (url(font-path + '.svg#' + filename) format('svg')))
+  // push(font-src, (url(font-path + '.svg#' + filename) format('svg')))
 
   // ugly hack, part 2
   shift(font-src) shift(font-src)
 
-  if font-src
+  if (font-src)
     @font-face
       font-family name
       src font-src

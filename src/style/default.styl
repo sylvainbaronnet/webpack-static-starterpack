@@ -13,18 +13,18 @@
  * - superformreset.css: gist.github.com/anthonyshort/552543
  * - systematize: github.com/mvasilkov/systematize
  */
-
 @import-normalize
-
 /*
  * Document
  */
-
-*, ::before, ::after
+*
+::before
+::after
   background-repeat no-repeat
   box-sizing inherit
 
-::before, ::after
+::before
+::after
   text-decoration inherit
   vertical-align inherit
 
@@ -33,37 +33,34 @@ html
   box-sizing border-box
   cursor default
 
-
 /*
  * Sections
  */
-
 body
   margin 0
   cursor default
 
-
 /*
  * Grouping
  */
-
 nav
-  ol, ul
+  ol
+  ul
     list-style none // remove the list style on navigation lists
-
 
 /*
  * Text-level semantics
  */
-
-// prevent `sub` and `sup` elements from affecting the line height.
-sub, sup
+sub
+sup
   font-size 75%
   line-height 0
   position relative
   vertical-align baseline
+
 sub
   bottom -.25em
+
 sup
   top -.5em
 
@@ -75,22 +72,27 @@ sup
 code
   cursor text
 
-
 /*
  * embedded content
  */
-
-// change the alignment on media elements.
-audio, canvas, iframe, img, svg, video
+audio
+canvas
+iframe
+img
+svg
+video
   vertical-align middle
 
 // responsive media resize if contain `figure`
 figure
   margin 0
-  img, video, object, embed
+
+  img
+  video
+  object
+  embed
     max-width 100%
     height auto
-
 
 // change the fill color to match the text color.
 svg
@@ -98,32 +100,31 @@ svg
   color inherit
   fill currentColor
 
-
 /*
  * tabular
  */
-
-// collapse border spacing
 table
   border-collapse collapse
-
 
 /*
  * forms
  */
-
-// inherit styling.
-button, input, optgroup, select, textarea
+button
+input
+optgroup
+select
+textarea
   color inherit
   font-family inherit
   font-size inherit
   line-height inherit
 
-label, button,
-input[type=file],
-input[type=radio],
-input[type=submit],
-input[type=button],
+label
+button
+input[type=file]
+input[type=radio]
+input[type=submit]
+input[type=button]
 input[type=checkbox]
   cursor pointer
 
@@ -141,36 +142,38 @@ select
 textarea
   resize vertical
   font-family inherit
-  font-size inherit/inherit
+  font-size inherit / inherit
 
 /*
  * Interactive elements
  */
-
-// details, summary, menu...
-
 /*
  * Scripting
  */
-
-// canvas, template
-
 /*
  * User interaction
  */
-
-// remove the tapping delay on clickable elements.
-a, area, button, input, label,
-select, summary, textarea, [tabindex]
+a
+area
+button
+input
+label
+select
+summary
+textarea
+[tabindex]
   touch-action manipulation
 
 // a, link and area styling, :any-link not supported by ie/edge
-:any-link, :link, :visited
+:any-link
+:link
+:visited
   transition .3s ease
   transition-property opacity, color, background-color
   cursor pointer
   color color-link
   -webkit-tap-highlight-color color-link-hover // hover color on tap action
+
   &:hover
     color color-link-hover
 
@@ -179,16 +182,13 @@ select, summary, textarea, [tabindex]
  * the following metatag in the page header: <meta name="format-detection" content="telephone=no">
  * cf. https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
  */
-
-a[href="tel"]
+a[href='tel']
   text-decoration underline
 
 /*
  * ARIA (https://w3c.github.io/html-aria/)
  */
-
-// change the cursor on busy elements.
-[aria-busy="true"]
+[aria-busy='true']
   cursor progress
 
 // change the cursor on control elements.
@@ -196,7 +196,7 @@ a[href="tel"]
   cursor pointer
 
 // change the display on visually hidden accessible elements.
-[aria-hidden="false"][hidden]:not(:focus)
+[aria-hidden='false'][hidden]:not(:focus)
   position absolute
   display inherit
   clip rect(0, 0, 0, 0)
@@ -208,10 +208,10 @@ a[href="tel"]
 /*
  * Accessibility
  */
-
-// remove motion according to system preference
-@media(prefers-reduced-motion: reduce)
-  *, ::before, ::after
+@media (prefers-reduced-motion: reduce)
+  *
+  ::before
+  ::after
     transition none !important
     animation none !important
     scroll-behavior auto !important

@@ -1,23 +1,18 @@
 
 /* size & padding */
-input-height    = 28px // height must be specified in px as it's also used for line-height
+input-height = 28px // height must be specified in px as it's also used for line-height
 textarea-height = auto
 input-padding =
   padding 2 3
-
 /* font */
-input-font      = font
+input-font = font
 input-font-size = 13px
-
 /* border style */
-input-border-style  = 1 solid lighten(color-text, 30)
-
-
+input-border-style = 1 solid lighten(color-text, 30)
 /* colors */
-input-text-color    = black
-input-bg-color      = white
+input-text-color = black
+input-bg-color = white
 input-invalid-color = red
-
 
 /*
  * Classic input field
@@ -30,21 +25,10 @@ input-invalid-color = red
  * Button input
  * - button, submit, reset, image
  */
-
-// input[type=text]
-// input[type=password]
-// input[type=search]
-// input[type=url]
-// input[type=tel]
-// input[type=email]
-//   appearance none
-
-// classic input types
 select
 textarea
 input[type=text]
 input[type=password]
-// html5 input types
 input[type=search]
 input[type=email]
 input[type=number]
@@ -64,11 +48,13 @@ input[type=url]
   transition .3s ease
   transition-property opacity, box-shadow, color, background-color, border-color
   box-shadow 0 0 0 0 transparent
+
   // size 100% input-height
   &:focus
     color color-text
     border-color color-text
     box-shadow 0 0 2 0 color-blue
+
   &::-ms-clear // remove ie/edge clear button
     display none
 
@@ -116,40 +102,48 @@ button[required]
 textarea[required]
   // required style
 
-
 input[type=radio]
 input[type=checkbox]
   {visually-hidden}
+
   + label
     position relative
+
     &:after
     &:before
       content ''
       absolute top left
+
     &:after
       border input-border-style
+
   &:disabled + label
     color #888
+
     &:before
       border #888
 
 input[type=radio]
   + label
     padding-left 22
+
     &:after
     &:before
       margin-top 1
       size 18
       border-radius 50%
+
     &:before
       padding 4
       background-clip content-box
       background-color color-blue
       transform scale(0)
       transition transform .1s ease
+
   &:checked + label
     &:before
       transform scale(1)
+
   &:disabled + label
     &:before
       background-color #888
@@ -157,35 +151,38 @@ input[type=radio]
 input[type=checkbox]
   + label
     padding-left 20
+
     &:after
     &:before
       margin-top 2
       size 16
+
     &:after
       border-radius 2.5
+
     &:before
       content '✓' // alt. '✔'
-      font-size 18/16px
+      font-size 18 / 16px
       text-align center
       font-family font-system-ui
       font-weight bold
       color transparent
       user-select none
       clip rect(0, 0, 16px, 0)
+
   &:checked + label
     &:before
       color dodgerblue
       transition clip .15s ease
       clip rect(0, 16px, 16px, 0)
+
   &:disabled + label
     &:before
       color #888
 
-
 /*
  * button-style submit, reset
  */
-
 @require '../button'
 
 input[type=reset]
@@ -197,8 +194,8 @@ input[type=button]
  * file picker button
  * https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
  */
-
 input[type=file]
   {visually-hidden}
+
   + label
-    @extends $button-default
+    @extend $button-default
