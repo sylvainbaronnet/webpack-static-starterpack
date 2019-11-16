@@ -1,0 +1,32 @@
+$button-default
+  display inline-block
+  width auto
+  color color-white color-blue
+  font-family font
+  font-size 14/30px
+  padding 0 10
+  border 0
+  border-radius 2.5
+  transition .3s ease
+  transition-property background-color, color
+  text-decoration none
+  &:hover
+    color white lighten(color-blue, 10)
+  &:active // click style
+    box-shadow none
+
+button
+  @extend $button-default
+
+.button
+  @extend $button-default
+
+  /* button variant styles*/
+  &-small
+    font-size 12/25px
+    padding \* 5
+  &-large
+    font-size 18/40px
+    padding \* 15
+  &-picto
+    //

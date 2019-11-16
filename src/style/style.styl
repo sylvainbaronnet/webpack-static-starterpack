@@ -1,0 +1,90 @@
+/*
+ * import variables from json file
+ * opts:
+ *   hash: allow hash access to nested variables
+ *         cf. stylus-lang.com/docs/hashes.html
+ *   leave-strings: don't interpret data types
+ * alt.: vars = json(...)
+ */
+// json('imports.json', { optional: true })
+
+/*
+ * Theme variables
+ */
+
+// assets paths
+assets-path = $default-assets-path
+medias-path = $default-medias-path
+fonts-path  = $default-fonts-path
+
+// colors
+color-white     = white
+color-black     = black
+color-grey      = silver
+color-red       = crimson
+color-green     = darkgreen
+color-blue      = dodgerblue
+
+// theme colors
+color-title      = color-black
+color-text       = color-black
+color-selection  = rgba(color-blue, .5)
+color-background = transparent
+color-link       = color-blue
+color-link-hover = color-black
+
+// base width for responsive
+base-width-desktop    = 1280px
+base-width-tablet     = 768px
+base-width-mobile     = 375px
+
+// device content width
+content-width-desktop = 940px
+content-width-tablet  = 640px
+content-width-mobile  = 100%
+
+// responsive breakpoints (cf. mixins responsive.styl for more information)
+// use rupture stylus plugin default values
+breakpoint-desktop     = base-width-desktop     // desktop/screen-hd breakpoint
+breakpoint-mobile      = rupture.desktop-cutoff // mobile/desktop breakpoint (default: 1050px)
+breakpoint-phone       = rupture.mobile-cutoff  // phone/tablet breakpoint (default: 400px)
+
+/*
+ * Normalized and default style
+ */
+@require 'default'
+
+
+/*
+ * Helpers and mixins
+ */
+@require 'mixins/*'
+
+
+/*
+ * Fonts
+ *
+ * This theme use `postcss-font-magician` and will automagically
+ * include any Google Font reference in the stylesheets
+ */
+
+// e.g. font-face('MyFontFile-WeightStyle', 'Font Name', 'normal', 'italic')
+
+// global theme font
+font       = font-system-ui
+font-title = font-serif
+
+/*
+ * Elements
+ */
+@require 'element/**/*'
+
+/*
+ * Layout
+ */
+@require 'layout/**/*'
+
+/*
+ * Content
+ */
+@require 'content/**/*'

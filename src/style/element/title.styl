@@ -1,0 +1,36 @@
+$title-default
+  font-family font-title
+  font-weight bold
+  color color-title
+  text-transform uppercase
+  overflow-wrap break-word
+  margin 0
+  a
+    color inherit
+    font-weight inherit
+    font-size inherit
+
+  +phone()
+    overflow-wrap normal
+
+h1
+  @extend $title-default
+  font-size 32
+
+h2
+  @extend $title-default
+  font-size 24
+
+h3
+  @extend $title-default
+  font-size 18
+
+h4
+  @extend $title-default
+  font-size 16
+
+// h5
+//   font-size 16
+
+// h6
+//   font-size 16

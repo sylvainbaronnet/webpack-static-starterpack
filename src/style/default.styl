@@ -1,0 +1,217 @@
+/*
+ * Default style
+ * -------------
+ * This theme is automagically standardize across browser at build time
+ * using the `postcss-normalize`. this plugin include all the necessary
+ * reset code matching the supported browsers (cf. browserslist)
+ *
+ * All additionnal default styling is here. Useful default taken from :
+ * - sanitize.css from github.com/jonathantneal/sanitize.css
+ * - cursor-reset.css from gist.github.com/murtaugh/5247154
+ * - canonical.css from github.com/marxo/Canonical.css
+ * - global.css from materialize.css github.com/Dogfalo/materialize
+ * - superformreset.css: gist.github.com/anthonyshort/552543
+ * - systematize: github.com/mvasilkov/systematize
+ */
+
+@import-normalize
+
+/*
+ * Document
+ */
+
+*, ::before, ::after
+  background-repeat no-repeat
+  box-sizing inherit
+
+::before, ::after
+  text-decoration inherit
+  vertical-align inherit
+
+// :root
+html
+  box-sizing border-box
+  cursor default
+
+
+/*
+ * Sections
+ */
+
+body
+  margin 0
+  cursor default
+
+
+/*
+ * Grouping
+ */
+
+nav
+  ol, ul
+    list-style none // remove the list style on navigation lists
+
+
+/*
+ * Text-level semantics
+ */
+
+// prevent `sub` and `sup` elements from affecting the line height.
+sub, sup
+  font-size 75%
+  line-height 0
+  position relative
+  vertical-align baseline
+sub
+  bottom -.25em
+sup
+  top -.5em
+
+// remove the text shadow on text selections
+::selection
+  color white color-selection
+  text-shadow none
+
+code
+  cursor text
+
+
+/*
+ * embedded content
+ */
+
+// change the alignment on media elements.
+audio, canvas, iframe, img, svg, video
+  vertical-align middle
+
+// responsive media resize if contain `figure`
+figure
+  margin 0
+  img, video, object, embed
+    max-width 100%
+    height auto
+
+
+// change the fill color to match the text color.
+svg
+  transition fill .3s ease
+  color inherit
+  fill currentColor
+
+
+/*
+ * tabular
+ */
+
+// collapse border spacing
+table
+  border-collapse collapse
+
+
+/*
+ * forms
+ */
+
+// inherit styling.
+button, input, optgroup, select, textarea
+  color inherit
+  font-family inherit
+  font-size inherit
+  line-height inherit
+
+label, button,
+input[type=file],
+input[type=radio],
+input[type=submit],
+input[type=button],
+input[type=checkbox]
+  cursor pointer
+
+button[disabled]
+input[disabled]
+  cursor default
+
+// remove the outer glow in webkit
+input
+select
+  &:focus
+    outline 0
+
+// change the resize direction on textareas.
+textarea
+  resize vertical
+  font-family inherit
+  font-size inherit/inherit
+
+/*
+ * Interactive elements
+ */
+
+// details, summary, menu...
+
+/*
+ * Scripting
+ */
+
+// canvas, template
+
+/*
+ * User interaction
+ */
+
+// remove the tapping delay on clickable elements.
+a, area, button, input, label,
+select, summary, textarea, [tabindex]
+  touch-action manipulation
+
+// a, link and area styling, :any-link not supported by ie/edge
+:any-link, :link, :visited
+  transition .3s ease
+  transition-property opacity, color, background-color
+  cursor pointer
+  color color-link
+  -webkit-tap-highlight-color color-link-hover // hover color on tap action
+  &:hover
+    color color-link-hover
+
+/*
+ * some mobile transform telephone number into callable links; this behaviour can be avoided with
+ * the following metatag in the page header: <meta name="format-detection" content="telephone=no">
+ * cf. https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+ */
+
+a[href="tel"]
+  text-decoration underline
+
+/*
+ * ARIA (https://w3c.github.io/html-aria/)
+ */
+
+// change the cursor on busy elements.
+[aria-busy="true"]
+  cursor progress
+
+// change the cursor on control elements.
+[aria-controls]
+  cursor pointer
+
+// change the display on visually hidden accessible elements.
+[aria-hidden="false"][hidden]:not(:focus)
+  position absolute
+  display inherit
+  clip rect(0, 0, 0, 0)
+
+// change the cursor on disabled, not-editable, or otherwise inoperable elements.
+[aria-disabled]
+  cursor default
+
+/*
+ * Accessibility
+ */
+
+// remove motion according to system preference
+@media(prefers-reduced-motion: reduce)
+  *, ::before, ::after
+    transition none !important
+    animation none !important
+    scroll-behavior auto !important
