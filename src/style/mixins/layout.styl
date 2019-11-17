@@ -37,17 +37,3 @@ clearfix()
     display block
     clear both
 
-/* legacy version (ie, opera...) */
-clearfix-legacy()
-@css {
-  *
-}
-
-zoom 1
-&:before
-&:after
-  content ' ' // space necessary for old opera version
-  display table // ensure visual consistency with ie6-7, but prevent margin collapse
-
-&:after
-  clear both

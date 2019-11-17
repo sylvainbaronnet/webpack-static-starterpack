@@ -4,10 +4,12 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <%= require('../partials/header.html') %>
+    <div style="width:500px;margin:50px auto;">
+      <h2>Pages :</h2>
+      <ul>
+        <li><a href="./home.html">Accueil</a></li>
 
-    <% var template =
-    require('../partials/header.html')%> <%=template.replace('{someVar}',
-    '!!!!')%>
+      </ul>
+    </div>
   </body>
 </html>
