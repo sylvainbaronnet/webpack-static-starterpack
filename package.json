@@ -83,7 +83,7 @@
     "prettier": "^1.19.1",
     "rupture": "^0.7.1",
     "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
+    "stylus-loader": "sylvainbaronnet/stylus-loader",
     "stylus-supremacy": "^2.14.0",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.41.2",
