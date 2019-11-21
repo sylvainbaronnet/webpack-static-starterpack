@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
 const FaviconWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -34,26 +33,6 @@ const generateHTMLPlugins = () =>
     });
   });
 
-const manifest = new WebpackPwaManifest({
-  filename: 'manifest.json',
-
-  name: config.siteName,
-  short_name: config.siteShortName,
-  description: config.siteDescription,
-  background_color: config.backgroundColor,
-  crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
-  orientation: 'portrait',
-  icons: [
-    {
-      src: path.resolve(config.favicon),
-      sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-      destination: 'medias/manifest',
-    },
-  ],
-  inject: false, // covered by FaviconWebpackPlugin
-  ios: false, // covered by FaviconWebpackPlugin
-});
-
 const favicons = new FaviconWebpackPlugin({
   logo: config.favicon,
   prefix: 'medias/favicons/',
@@ -62,6 +41,11 @@ const favicons = new FaviconWebpackPlugin({
     appDescription: config.siteDescription,
     developerName: null,
     developerURL: null,
+    background: '#fff',
+    theme_color: '#00B9B0',
+    start_url: '/',
+    dir: "ltr",
+    lang: "fr-FR",
     icons: {
       android: true,
       appleIcon: true,
@@ -109,14 +93,13 @@ const google = new GoogleAnalyticsPlugin({
 
 module.exports = [
   new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
+    // $: 'jquery',
+    // jQuery: 'jquery',
   }),
   clean,
   cssExtract,
   ...generateHTMLPlugins(),
   fs.existsSync(config.favicon) && favicons,
-  manifest,
   config.googleAnalyticsUA && google,
   webpackBar,
   config.env === 'development' && hmr,

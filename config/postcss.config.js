@@ -33,7 +33,7 @@ module.exports = {
     require('postcss-size'),
     require('postcss-axis'),
     require('postcss-font-weights'),
-    require('postcss-quantity-queries'),
+    // require('postcss-quantity-queries'),
     require('postcss-font-magician')({
       formats: 'woff2 woff', // 'eot ttf svg' aren't necessary anymore
       foundries: ['google'],
